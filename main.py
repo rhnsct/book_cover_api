@@ -1,8 +1,9 @@
+# main.py
 from fastapi import FastAPI
 
 app = FastAPI()
 
 
-@app.get("book-cover")
+@app.get("/")
 def hello():
-    return "Hello World"
+    return {"message": "Hello World"}
