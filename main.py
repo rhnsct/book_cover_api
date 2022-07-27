@@ -41,7 +41,11 @@ def img_check(unclean_list):
 def organize_google_response(response_json):
     isbn_unclean_list = []
     for i in response_json['items']:
-        if check_ISBN(i["volumeInfo"]["industryIdentifiers"]):
+        try:
+            check_ISBN(i["volumeInfo"]["industryIdentifiers"])
+        except KeyError:
+            pass
+        else:
             isbn = i["volumeInfo"]["industryIdentifiers"][0]["identifier"]
             isbn_unclean_list.append(isbn)
 
@@ -56,7 +60,7 @@ def check_ISBN(list_item):
 
 
 @app.get("/get")
-def return_URL(title, author):
+def return_URL(title="fellowship+of+the+ring", author="j.r.r+tolkien"):
 
     response_dict = google_api_call(title, author)
     return response_dict
