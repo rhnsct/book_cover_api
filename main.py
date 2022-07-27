@@ -12,7 +12,8 @@ origins = ["http://localhost",
            "https://localhost:5500",
            "http://127.0.0.1:5500",
            "http://127.0.0.1:5500/",
-           "https://127.0.0.1:5500"
+           "https://127.0.0.1:5500",
+           "https://rhnsct.github.io/library_js"
            ]
 
 app.add_middleware(
