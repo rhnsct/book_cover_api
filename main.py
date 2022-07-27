@@ -60,7 +60,7 @@ def check_ISBN(list_item):
 
 
 @app.get("/get")
-def return_URL(title="fellowship+of+the+ring", author="j.r.r+tolkien"):
+def return_URL(title, author):
 
     response_dict = google_api_call(title, author)
     return response_dict
